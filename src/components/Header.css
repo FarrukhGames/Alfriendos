@@ -1,0 +1,16 @@
+.header {
+    box-shadow: 0px 2px 5px black;
+    display: flex;
+}
+
+.logo {
+    height: 100px;
+    margin-top: 25px;
+    margin-left: 25px;
+}
+
+.title {
+    padding: 7px;
+    margin-left: 855px;
+    font-size: 50px;
+}
