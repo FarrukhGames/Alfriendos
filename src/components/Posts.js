@@ -1,16 +1,10 @@
-import plage from '../images/plage.jpg';
-import profilimage from '../images/profilimage.png';
+import Publication from './Publication'; 
+import image from '../images/plage.jpg';
 const Posts = () => {
     return (
         <section className="posts">
-            <div className="publication">
-                <div className="publication-user">
-                    <img className="publication-user-photo" src={profilimage}/>
-                    <h1>FarrukhGames</h1>
-                </div>
-                <p>Пляж, это наше всё 😃</p>
-                <img className="publication-image" src={plage}/>
-            </div>
+            <Publication userName="Farrukh" text="Пляж, это наше всё 😃" img={image}/>
+            <Publication/>
         </section>
     );
 }

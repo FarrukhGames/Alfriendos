@@ -1,14 +1,19 @@
+import photo from '../images/profilimage.png';
+import Posts from './Posts';
+const profile = () => {
+    return (
+        <div className="profile">
+            <img className="photo" src={photo}/>
+            <h1 className="name">User</h1>
+            <div className="user">
+                <p><b>Имя</b>:User</p>
+                <p><b>Дата рождение</b>: 29/08/2006</p>
+                <p><b>Описание</b>: I am a new Allfriendos user</p>
+                <p className="biography">Блогер</p>
+            </div>
+            <Posts/>
+        </div>
+    );
+}
 
-//<div className="profil">
-//     <img className="photo" src={photo}/>
-//     <h1 className="Name">User</h1>
-//     <p className="User">
-//         <b>Имя</b>:User
-//         <br/>  
-//         <b>Дата рождение</b>: 29/08/2006
-//         <br/>
-//         <b>Описание</b>: I am a new Allfriendos user
-//         <br/>
-//         <span className="biography">Блогер</span>
-//     </p>
-// </div>
+export default profile;

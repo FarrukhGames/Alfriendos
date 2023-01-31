@@ -1,14 +1,14 @@
-import './Navigation.css';
+import {Link, NavLink} from 'react-router-dom';
 const Navigation = () => {
     return (
         <nav className="navigation">
-            <a href="#" className="Profil">Профиль</a>
-            <a href="#" className="Message">Сообщения</a>
+            <NavLink to="/Profile" className="Profil">Профиль</NavLink>
+            <NavLink to="/messages" className="Message">Сообщения</NavLink>
             <a href="#" className="Friends">Друзья</a>
             <a href="#" className="Find-friends">Поиск друзей</a>
             <a href="#" className="Reels">Allfriendos Clips</a>
             <a href="#" className="History">Истории</a>
-            <a href="#" className="Photos">Фото</a>
+            <NavLink to="/Posts" className="Post">Фото</NavLink>
             <a href="#" className="Favorites">Избранное</a>
         </nav>
     );
