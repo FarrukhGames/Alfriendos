@@ -4,9 +4,20 @@ import Navigation from './components/Navigation';
 import Posts from './components/Posts';
 import Messages from './components/Messages';
 import Profile from './components/Profile';
+import Error from './components/Error';
 import {Route, Routes} from 'react-router-dom';
 
-function App() {
+const App = () => {
+  let numbers = [1, 2, 3, 4, 5];
+  // let numbers2 = [];
+  // numbers.forEach((number ,i) => {
+  //   // numbers2[i] = number + 1;
+  //   numbers2.push(number * 2)
+  // });
+  let numbers2 = numbers.map((number) => {
+    return number * 2;
+  }); 
+  console.log(numbers2);
   return (
     <>
       <Header/>
@@ -16,7 +27,7 @@ function App() {
           <Route path="/messages" element={<Messages/>}/>
           <Route path="/posts" element={<Posts/>}/>
           <Route path="/profile" element={<Profile/>}/>
-          <Route path="/*" element={<h1>error 404</h1>}/>
+          <Route path="/*" element={<Error/>}/>
         </Routes>
       </main>
     </>
