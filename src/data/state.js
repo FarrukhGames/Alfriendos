@@ -21,18 +21,18 @@ const addPost = (userName, text) => {
         id: Math.random()
     }
     state.publications.push(newPost);
-    console.log(newPost);
 }
 
 addPost("lq^plsdzq", "okaqjsd qojsd ojzqisd zjq");
 
-const addMessage = (userName, text) => {
+export const addMessage = (userName, message) => {
     const newMessage = { 
         userName: userName,
-        text: text,
+        message: message,
         id: Math.random()
     }
     state.messages.push(newMessage);
+    console.log(newMessage);
 }
 
 addMessage("kfdkdk", "jhi upiqsh fdqjuq hhuoç sqfjuih qijuhc uh");
