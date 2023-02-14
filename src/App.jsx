@@ -8,19 +8,12 @@ import Error from './components/Error';
 import {Route, Routes} from 'react-router-dom';
 
 const App = (props) => {
-  const numbers = [1, 2, 3, 4, 5];
-  // let numbers2 = [];
-  // numbers.forEach((number ,i) => {
-  //   // numbers2[i] = number + 1;
-  //   numbers2.push(number * 2)
-  // });
+  const numbers = [13, 14, 15, 16, 17];
   const numbers2 = numbers.map((number) => {
-    return number * 2;
-  }); 
-  numbers2.push(651);
-  numbers2.push(845);
-  const numbers3 = numbers2;
-  // console.log(numbers3, numbers2);
+    return number * 10;
+  });
+  console.log(numbers2);
+  console.log(props.publications)
   return (
     <>
       <Header/>
@@ -28,7 +21,7 @@ const App = (props) => {
         <Navigation/>      
         <Routes>
           <Route path="/messages" element={<Messages messages={props.messages}/>}/>
-          <Route path="/posts" element={<Posts publications={props.publications}/>}/>
+          <Route path="/posts" element={<Posts/>}/>
           <Route path="/profile" element={<Profile/>}/>
           <Route path="/*" element={<Error/>}/>
         </Routes>

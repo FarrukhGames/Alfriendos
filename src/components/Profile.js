@@ -1,6 +1,6 @@
 import Posts from './Posts';
 import ProfileInfo from './ProfileInfo';
-const profile = () => {
+const Profile = (props) => {
     return (
         <div className="profile">
             <ProfileInfo/>
@@ -9,4 +9,4 @@ const profile = () => {
     );
 }
 
-export default profile;
+export default Profile;

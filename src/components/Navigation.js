@@ -2,14 +2,14 @@ import {Link, NavLink} from 'react-router-dom';
 const Navigation = () => {
     return (
         <nav className="navigation">
-            <NavLink to="/Profile" className="Profil">Профиль</NavLink>
-            <NavLink to="/messages" className="Message">Сообщения</NavLink>
-            <a href="#" className="Friends">Друзья</a>
-            <a href="#" className="Find-friends">Поиск друзей</a>
-            <a href="#" className="Reels">Allfriendos Clips</a>
-            <a href="#" className="History">Истории</a>
-            <NavLink to="/Posts" className="Post">Фото</NavLink>
-            <a href="#" className="Favorites">Избранное</a>
+            <NavLink to="/profile">Профиль</NavLink>
+            <NavLink to="/messages">Сообщения</NavLink>
+            <a href="#">Друзья</a>
+            <a href="#">Поиск друзей</a>
+            <a href="#">Allfriendos Clips</a>
+            <a href="#">Истории</a>
+            <NavLink to="/posts">Посты</NavLink>
+            <a href="#">Избранное</a>
         </nav>
     );
 }

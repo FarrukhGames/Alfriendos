@@ -1,4 +1,5 @@
 import Message from './Message'; 
+import {messages} from '../data/state';
 const Messages = (props) => {
     return (
         <section className="message">
@@ -8,8 +9,8 @@ const Messages = (props) => {
                 <button><Message/></button>
             </div>
             <div className="messages">
-                {props.messages.map((element) => {
-                    return <Message userName={element.userName} message={element.message} key={element.id}/>
+                {messages.map((element) => {
+                    return <Message userName={element.userName} messages={element.messages} key={element.id}/>
                 })}
                 <div className="send">
                     <textarea></textarea>

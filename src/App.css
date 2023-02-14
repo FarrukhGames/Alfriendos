@@ -72,8 +72,10 @@ img {
 
 .send textarea {
     width: 50%;
-    border-radius: 100px;
-    padding: 5px;
+    border-radius: 30px;
+    padding: 10px;
+    resize: vertical;
+    max-height: 445px;
 }
 
 .send button {
