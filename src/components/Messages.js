@@ -1,6 +1,9 @@
 import Message from './Message'; 
-import {messages} from '../data/state';
+import state from '../data/state';
 const Messages = (props) => {
+    const onSubmitHandler = (event) => {
+        event.preventDefault();
+    }
     return (
         <section className="message">
             <div className='names'>
@@ -9,14 +12,15 @@ const Messages = (props) => {
                 <button><Message/></button>
             </div>
             <div className="messages">
-                {messages.map((element) => {
+                {state.messages.map((element) => {
                     return <Message userName={element.userName} messages={element.messages} key={element.id}/>
                 })}
-                <div className="send">
-                    <textarea></textarea>
+                <form className="send" onSubmit={onSubmitHandler}>
+                    <input type="text" placeholder="Имя"/>
+                    <textarea placeholder="Напишите сообщение..."></textarea>
                     <br/>
-                    <button>▶</button>
-                </div>
+                    <button type="submit">▶</button>
+                </form>
             </div>
         </section>
     );
