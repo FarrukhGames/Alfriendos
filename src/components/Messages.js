@@ -1,13 +1,16 @@
-import React from 'react';
+import React,{useState} from 'react';
 import Message from './Message'; 
 import state from '../data/state';
 import {addMessage} from '../data/state';
 const Messages = (props) => {
-    let nameInput = React.createRef();
+    let [name, setName] = useState("");
     let messageTextarea = React.createRef();
     const onSubmitHandler = (event) => {
         event.preventDefault();
-        addMessage(nameInput.current.value, messageTextarea.current.value);
+        addMessage(name, messageTextarea.current.value);
+    }
+    const nameChangeHandler = (event) => {
+        setName(event.target.value);
     }
     return (
         <section className="message">
@@ -21,7 +24,7 @@ const Messages = (props) => {
                     return <Message userName={element.userName} message={element.message} key={element.id}/>
                 })}
                 <form className="send" onSubmit={onSubmitHandler}>
-                    <input type="text" placeholder="Имя" ref={nameInput}/>
+                    <input type="text" placeholder="Имя" value={name} onChange={nameChangeHandler}/>
                     <textarea placeholder="Напишите сообщение..." ref={messageTextarea}></textarea>
                     <br/>
                     <button type="submit">▶</button>

@@ -5,6 +5,7 @@ import Posts from './components/Posts';
 import Messages from './components/Messages';
 import Profile from './components/Profile';
 import Error from './components/Error';
+import Counter from './components/Counter'
 import {Route, Routes} from 'react-router-dom';
 
 const App = (props) => {
@@ -12,8 +13,6 @@ const App = (props) => {
   const numbers2 = numbers.map((number) => {
     return number * 10;
   });
-  console.log(numbers2);
-  console.log(props.publications)
   return (
     <>
       <Header/>
@@ -23,6 +22,7 @@ const App = (props) => {
           <Route path="/messages" element={<Messages messages={props.messages}/>}/>
           <Route path="/posts" element={<Posts/>}/>
           <Route path="/profile" element={<Profile/>}/>
+          <Route path="/counter" element={<Counter/>}/>
           <Route path="/*" element={<Error/>}/>
         </Routes>
       </main>

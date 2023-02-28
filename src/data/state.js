@@ -1,4 +1,5 @@
 import image from '../images/plage.jpg';
+import {renderTree} from '../index';
 
 const state = {
     publications: [
@@ -13,17 +14,29 @@ const state = {
     ]
 }
 
-const addPost = (userName, text) => {
+export const addPost = (userName, text) => {
     const newPost = { 
         userName: userName,
         text: text,
         img: image,
         id: Math.random()
     }
-    state.publications.push(newPost);
+    state.publications.unshift(newPost);
+    renderTree();
 }
 
-addPost("lq^plsdzq", "okaqjsd qojsd ojzqisd zjq");
+export const deletePost = (postId) => {
+    // const postToDelete = state.publications.findIndex((post) => {
+    //     return post.id == postId;
+    // });
+    // console.log(postToDelete);
+    // state.publications[postToDelete] = "";
+    state.publications = state.publications.filter((post) => {
+        return post.id != postId;
+    });
+    console.log(state.publications)
+    renderTree();
+}
 
 export const addMessage = (userName, message) => {
     const newMessage = { 
@@ -32,9 +45,7 @@ export const addMessage = (userName, message) => {
         id: Math.random()
     }
     state.messages.push(newMessage);
-    console.log(newMessage);
+    renderTree();
 }
-
-addMessage("kfdkdk", "jhi upiqsh fdqjuq hhuoç sqfjuih qijuhc uh");
 
 export default state;
