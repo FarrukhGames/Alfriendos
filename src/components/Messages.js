@@ -8,8 +8,7 @@ const Messages = (props) => {
     let messageTextarea = React.createRef();
     const onSubmitHandler = (event) => {
         event.preventDefault();
-        const dispatch = store.addMessage.bind(store);
-        // dispatch(name, ": " + messageTextarea.current.value);
+        const dispatch = store.dispatch.bind(store);
         dispatch({type: "ADD_MESSAGE", name, message: ": " + messageTextarea.current.value});
     }
     const nameChangeHandler = (event) => {

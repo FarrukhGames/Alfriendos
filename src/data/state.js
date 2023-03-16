@@ -42,7 +42,7 @@ const store = {
             renderTree();
         } else if (action.type === "ADD_MESSAGE") {
             const newMessage = { 
-                userName: action.userName,
+                userName: action.name,
                 message: action.message,
                 id: Math.random(),
             }
@@ -62,15 +62,6 @@ const store = {
             post.like++;
             renderTree();
         }
-    },
-    addMessage(userName, message) {
-        const newMessage = { 
-            userName: userName,
-            message: message,
-            id: Math.random(),
-        }
-        this._state.messages.push(newMessage);
-        renderTree();
     }
 }
 
