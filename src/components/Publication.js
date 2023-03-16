@@ -1,11 +1,13 @@
 // import {useState} from 'react';
 import profilimage from '../images/profilimage.png';
 import store from '../data/state';
+import {deletePostAC} from '../data/state';
 // import {deletePost} from '../data/state';
 const Publication = (props) => {
     const removePost = () => {
         const dispatch = store.dispatch.bind(store);
-        dispatch({type: "DELETE_POST", postId: props.id});
+        // dispatch({type: "DELETE_POST", postId: props.id});
+        dispatch(deletePostAC(props.id));
     } 
     // let [number, setNumber] = useState(0);
     const likeNumber = () => {

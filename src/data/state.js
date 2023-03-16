@@ -17,7 +17,7 @@ const store = {
             {userName: "Farrukh", id: 1},
             {userName: "Leo Messi", id: 2},
             {userName: "Elon Musk", id: 3}
-        ],
+        ]
     },
     getState() {
         return this._state;
@@ -65,4 +65,12 @@ const store = {
     }
 }
 
+// AC это Action Creator
+export const deletePostAC = (id) => {
+    const action = {
+        type: "DELETE_POST", 
+        postId: id
+    }
+    return action;
+}
 export default store;
