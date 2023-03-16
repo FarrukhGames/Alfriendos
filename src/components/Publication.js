@@ -4,14 +4,14 @@ import store from '../data/state';
 // import {deletePost} from '../data/state';
 const Publication = (props) => {
     const removePost = () => {
-        const deletePost = store.deletePost.bind(store);
-        deletePost(props.id);
+        const dispatch = store.dispatch.bind(store);
+        dispatch({type: "DELETE_POST", postId: props.id});
     } 
     // let [number, setNumber] = useState(0);
     const likeNumber = () => {
         // setNumber(number + 1);
-        const addLikes = store.addLikes.bind(store);
-        addLikes(props.id);
+        const dispatch = store.dispatch.bind(store);
+        dispatch({type: "ADD_LIKE", id: props.id});
     };
     return (
         <div className="publication">

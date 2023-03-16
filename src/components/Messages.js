@@ -8,8 +8,9 @@ const Messages = (props) => {
     let messageTextarea = React.createRef();
     const onSubmitHandler = (event) => {
         event.preventDefault();
-        const addMessage = store.addMessage.bind(store);
-        addMessage(name, ": " + messageTextarea.current.value);
+        const dispatch = store.addMessage.bind(store);
+        // dispatch(name, ": " + messageTextarea.current.value);
+        dispatch({type: "ADD_MESSAGE", name, message: ": " + messageTextarea.current.value});
     }
     const nameChangeHandler = (event) => {
         setName(event.target.value);
@@ -22,7 +23,7 @@ const Messages = (props) => {
                 <button><Peoples/></button>
             </div>
             <div className="messages">
-                {store.state.messages.map((element) => {
+                {store.getState().messages.map((element) => {
                     return <Message userName={element.userName} message={element.message} key={element.id} id={element.id}/>
                 })}
                 <form className="send" onSubmit={onSubmitHandler}>

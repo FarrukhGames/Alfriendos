@@ -4,8 +4,8 @@ import store from '../data/state';
 
 const Message = (props) => {
     const removeMessage = () => {
-        const deleteMessage = store.deleteMessage.bind(store);
-        deleteMessage(props.id);
+        const dispatch = store.dispatch.bind(store);
+        dispatch({type: "DELETE_MESSAGE", messageId: props.id});
     } 
     return (
         <div className="message-user">

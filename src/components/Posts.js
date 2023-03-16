@@ -10,8 +10,8 @@ const Posts = () => {
     // let textTextarea = React.createRef();
     const onSubmitHandler = (event) => {
         event.preventDefault();
-        const addPost = store.addPost.bind(store);
-        addPost(name, text);
+        const dispatch = store.dispatch.bind(store);
+        dispatch({type: "ADD_POST", name, text, image});
     }
     const nameChangeHandler = (event) => {
         setName(event.target.value);
@@ -27,16 +27,16 @@ const Posts = () => {
         <section className="posts">
             <div className="new-post">
                 <h1>Новый Пост</h1>
-                <form className="post" onSubmit={onSubmitHandler}>
+                <form className="new-post-form" onSubmit={onSubmitHandler}>
                     <input type="text" placeholder="Имя" value={name} onChange={nameChangeHandler}/>
-                    <textarea placeholder="Напишите Текст..." value={text} onChange={textChangeHandler}></textarea>
-                    <input type="file" onChange={addFile}/>
+                    <textarea className="new-post-textarea" placeholder="Напишите Текст..." value={text} onChange={textChangeHandler}></textarea>
+                    <input className="new-post-file-input" type="file" onChange={addFile}/>
                     <br/>
                     <button type="submit">Запостить</button>
                 </form>
                 <img src={image}/>
             </div>
-            {store.state.publications.map((element) => {
+            {store.getState().publications.map((element) => {
                 return <Publication userName={element.userName} text={element.text} img={element.img} key={element.id} id={element.id} like={element.like}/>  
             })}
         </section>
