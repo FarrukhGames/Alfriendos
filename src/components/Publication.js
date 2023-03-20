@@ -2,6 +2,7 @@
 import profilimage from '../images/profilimage.png';
 import store from '../data/state';
 import {deletePostAC} from '../data/state';
+import {addLikeAC} from '../data/state';
 // import {deletePost} from '../data/state';
 const Publication = (props) => {
     const removePost = () => {
@@ -13,7 +14,7 @@ const Publication = (props) => {
     const likeNumber = () => {
         // setNumber(number + 1);
         const dispatch = store.dispatch.bind(store);
-        dispatch({type: "ADD_LIKE", id: props.id});
+        dispatch(addLikeAC(props.id));
     };
     return (
         <div className="publication">

@@ -2,14 +2,15 @@ import React,{useState} from 'react';
 import Message from './Message'; 
 import Peoples from './Peoples'; 
 import store from '../data/state';
+import {addMessageAC} from '../data/state';
 // import {addMessage} from '../data/state';
 const Messages = (props) => {
-    let [name, setName] = useState("");
+    const [name, setName] = useState("");
     let messageTextarea = React.createRef();
     const onSubmitHandler = (event) => {
         event.preventDefault();
         const dispatch = store.dispatch.bind(store);
-        dispatch({type: "ADD_MESSAGE", name, message: ": " + messageTextarea.current.value});
+        dispatch(addMessageAC(name, ": " + messageTextarea.current.value));
     }
     const nameChangeHandler = (event) => {
         setName(event.target.value);

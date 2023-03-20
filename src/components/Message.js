@@ -1,11 +1,12 @@
 import {Link} from "react-router-dom";
 import store from '../data/state';
+import {deleteMessageAC} from '../data/state';
 // import {deleteMessage} from '../data/state';
 
 const Message = (props) => {
     const removeMessage = () => {
         const dispatch = store.dispatch.bind(store);
-        dispatch({type: "DELETE_MESSAGE", messageId: props.id});
+        dispatch(deleteMessageAC(props.id));
     } 
     return (
         <div className="message-user">

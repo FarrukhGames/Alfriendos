@@ -31,9 +31,9 @@ const store = {
             renderTree();       
         } else if (action.type === "ADD_POST") {
             const newPost = { 
-                userName: action.name,
+                userName: action.userName,
                 text: action.text,
-                img: action.image,
+                img: action.img,
                 id: Math.random(),
                 like: 0
             }
@@ -42,7 +42,7 @@ const store = {
             renderTree();
         } else if (action.type === "ADD_MESSAGE") {
             const newMessage = { 
-                userName: action.name,
+                userName: action.userName,
                 message: action.message,
                 id: Math.random(),
             }
@@ -70,6 +70,41 @@ export const deletePostAC = (id) => {
     const action = {
         type: "DELETE_POST", 
         postId: id
+    }
+    return action;
+}
+
+export const addPostAC = (userName, text, img) => {
+    const action = {
+        type: "ADD_POST", 
+        userName: userName,
+        text: text,
+        img: img
+    }
+    return action;
+}
+
+export const addMessageAC = (userName, message) => {
+    const action = {
+        type: "ADD_MESSAGE",
+        userName: userName,
+        message: message,
+    }
+    return action;
+}
+
+export const deleteMessageAC = (id) => {
+    const action = {
+        type: "DELETE_MESSAGE", 
+        messageId: id
+    }
+    return action;
+}
+
+export const addLikeAC = (id) => {
+    const action = {
+        type: "ADD_LIKE", 
+        id: id
     }
     return action;
 }

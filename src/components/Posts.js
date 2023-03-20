@@ -1,17 +1,18 @@
 import React,{useState} from 'react';
 import Publication from './Publication'; 
 import store from '../data/state';
+import {addPostAC} from '../data/state';
 // import {addPost} from '../data/state';
 const Posts = () => {
     const [name, setName] = useState("");
     const [text, setText] = useState("");
-    const [image, setImage] = useState(null);
+    const [img, setImage] = useState(null);
     // let nameInput = React.createRef();
     // let textTextarea = React.createRef();
     const onSubmitHandler = (event) => {
         event.preventDefault();
         const dispatch = store.dispatch.bind(store);
-        dispatch({type: "ADD_POST", name, text, image});
+        dispatch(addPostAC(name, text, img));
     }
     const nameChangeHandler = (event) => {
         setName(event.target.value);
@@ -21,7 +22,7 @@ const Posts = () => {
     }
     const addFile = (event) => {
         setImage(URL.createObjectURL(event.target.files[0]));
-        console.log(image);
+        console.log(img);
     }
     return (
         <section className="posts">
@@ -34,7 +35,7 @@ const Posts = () => {
                     <br/>
                     <button type="submit">Запостить</button>
                 </form>
-                <img src={image}/>
+                <img src={img}/>
             </div>
             {store.getState().publications.map((element) => {
                 return <Publication userName={element.userName} text={element.text} img={element.img} key={element.id} id={element.id} like={element.like}/>  
