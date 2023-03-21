@@ -37,7 +37,7 @@ const Posts = () => {
                 </form>
                 <img src={img}/>
             </div>
-            {store.getState().publications.map((element) => {
+            {store.getState().profilePage.publications.map((element) => {
                 return <Publication userName={element.userName} text={element.text} img={element.img} key={element.id} id={element.id} like={element.like}/>  
             })}
         </section>

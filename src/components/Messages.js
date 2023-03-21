@@ -23,7 +23,7 @@ const Messages = (props) => {
                 <button><Peoples/></button>
             </div>
             <div className="messages">
-                {store.getState().messages.map((element) => {
+                {store.getState().dialogesPage.messages.map((element) => {
                     return <Message userName={element.userName} message={element.message} key={element.id} id={element.id}/>
                 })}
                 <form className="send" onSubmit={onSubmitHandler}>
