@@ -64,9 +64,11 @@ const store = {
                 const post = this._state.profilePage.publications.find((element) => {
                     return element.id === action.id;
                 });
-                console.log(post)
                 post.like++;
                 renderTree();
+                break;
+            default: 
+                console.log("Что то не то :(");
                 break;
         }
     }

@@ -7,6 +7,7 @@ const Posts = () => {
     const [name, setName] = useState("");
     const [text, setText] = useState("");
     const [img, setImage] = useState(null);
+    const [fileName, setFileName] = useState("")
     // let nameInput = React.createRef();
     // let textTextarea = React.createRef();
     const onSubmitHandler = (event) => {
@@ -21,8 +22,9 @@ const Posts = () => {
         setText(event.target.value)
     }
     const addFile = (event) => {
+        console.log(event.target.files);
         setImage(URL.createObjectURL(event.target.files[0]));
-        console.log(img);
+        setFileName(event.target.files[0].name);
     }
     return (
         <section className="posts">
@@ -32,6 +34,7 @@ const Posts = () => {
                     <input type="text" placeholder="Имя" value={name} onChange={nameChangeHandler}/>
                     <textarea className="new-post-textarea" placeholder="Напишите Текст..." value={text} onChange={textChangeHandler}></textarea>
                     <input className="new-post-file-input" type="file" onChange={addFile}/>
+                    <p>{fileName}</p>
                     <br/>
                     <button type="submit">Запостить</button>
                 </form>
