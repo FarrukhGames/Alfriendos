@@ -1,4 +1,7 @@
 import image from '../images/plage.jpg';
+import elonmusk from '../images/elonmusk.png';
+import farrukh from '../images/farrukh.png';
+import leomessi from '../images/leomessi.png';
 import {renderTree} from '../index';
 
 const store = {
@@ -10,9 +13,9 @@ const store = {
                 {userName: "Elon Musk", text: "Я купил планету земля", img: image, id: 3, like: 0}
             ],
             friends: [
-                {userName: "Farrukh", id: 1},
-                {userName: "Leo Messi", id: 2},
-                {userName: "Elon Musk", id: 3}
+                {userName: "Farrukh", img: farrukh, id: 1},
+                {userName: "Leo Messi", img: leomessi, id: 2},
+                {userName: "Elon Musk", img: elonmusk, id: 3}
             ]
         },
         dialogesPage: {        

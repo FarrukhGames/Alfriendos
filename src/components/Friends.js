@@ -6,7 +6,7 @@ const Friends = (props) => {
             <h1>Friends</h1>
             <div className="friends-div">
                 {store.getState().profilePage.friends.map((element) => {
-                    return <Friend userName={element.userName} key={element.id} id={element.id}/>  
+                    return <Friend userName={element.userName} img={element.img} key={element.id} id={element.id}/>  
                 })}
             </div>
         </div>
