@@ -120,7 +120,7 @@ img {
 }
 
 .new-post-file-input::before {
-    content: "Файл не выбран";
+    content: attr(data-text);
     font-size: 16px;
     display: block;
     text-align: center;

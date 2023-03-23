@@ -33,8 +33,7 @@ const Posts = () => {
                 <form className="new-post-form" onSubmit={onSubmitHandler}>
                     <input type="text" placeholder="Имя" value={name} onChange={nameChangeHandler}/>
                     <textarea className="new-post-textarea" placeholder="Напишите Текст..." value={text} onChange={textChangeHandler}></textarea>
-                    <input className="new-post-file-input" type="file" onChange={addFile}/>
-                    <p>{fileName}</p>
+                    <input className="new-post-file-input" type="file" onChange={addFile} data-text={(fileName === "") ? "Файл не выбран" : fileName}/>
                     <br/>
                     <button type="submit">Запостить</button>
                 </form>
