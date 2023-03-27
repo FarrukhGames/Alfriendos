@@ -330,3 +330,31 @@ a:hover {
     border: 1px solid black;
     border-radius: 15px;
 }
+
+.find-friends-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    width: 100%;
+}
+
+.find-friends-div {
+    display: flex;
+    width: 550px;
+    margin: 20px;
+}
+
+.find-friends-input {
+    width: 100%;
+}
+
+.friends-profile {
+    display: flex;
+}
+
+.friends-profile .friends-div {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+}
