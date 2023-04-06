@@ -13,7 +13,6 @@ body {
 
 .main {
     display: flex;
-
     margin-top: var(--header-height);
     margin-left: var(--navigation-width)
 }
@@ -357,4 +356,62 @@ a:hover {
     width: 500px;
     display: flex;
     flex-direction: column;
+}
+
+.gallery {
+    width: 100%;
+    height: 100%;
+    display: grid; 
+    grid-template-columns: repeat(5, 20%);
+    grid-template-rows: repeat(5, 178.3px);
+    grid-template-areas: "gta gta minecraft csgo sonic"
+                         "gta gta aurora aurora aurora"
+                         "pp pp aurora aurora aurora"
+                         "pp pp aurora aurora aurora"
+                         "roblox fnaf bs c3 c3";
+}
+
+.gallery img {
+    width: 100%;
+    height: 100%;
+}
+
+.sonic {
+  grid-area: sonic;
+}
+
+.minecraft {
+  grid-area: minecraft;
+}
+
+.csgo {
+  grid-area: csgo;
+}
+
+.gta {
+  grid-area: gta;
+}
+
+.bs {
+  grid-area: bs;
+}
+
+.aurora {
+  grid-area: aurora;
+}
+
+.roblox {
+  grid-area: roblox;
+}
+
+.fnaf {
+  grid-area: fnaf;
+}
+
+.pp {
+  grid-area: pp;
+}
+
+.c3 {
+  grid-area: c3;
 }

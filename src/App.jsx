@@ -7,6 +7,7 @@ import Profile from './components/Profile';
 import Error from './components/Error';
 import FindFriends from './components/FindFriends';
 import Counter from './components/Counter';
+import Gallery from './components/Gallery';
 import {Route, Routes} from 'react-router-dom';
 
 const App = (props) => {
@@ -22,9 +23,10 @@ const App = (props) => {
         <Routes>
           <Route path="/messages" element={<Messages messages={props.messages}/>}/>
           <Route path="/posts" element={<Posts/>}/>
-          <Route path="/profile" element={<Profile/>}/>
+          <Route path="/" element={<Profile/>}/>
           <Route path="/findFriends" element={<FindFriends/>}/>
           <Route path="/counter" element={<Counter/>}/>
+          <Route path="/gallery" element={<Gallery/>}/>
           <Route path="/*" element={<Error/>}/>
         </Routes>
       </main>

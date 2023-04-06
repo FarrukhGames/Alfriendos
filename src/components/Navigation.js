@@ -2,7 +2,7 @@ import {NavLink} from 'react-router-dom';
 const Navigation = () => {
     return (
         <nav className="navigation">
-            <NavLink to="/profile">Профиль</NavLink>
+            <NavLink to="/">Профиль</NavLink>
             <NavLink to="/messages">Сообщения</NavLink>
             <a href="#">Друзья</a>
             <NavLink to="/findFriends">Поиск друзей</NavLink>
@@ -10,7 +10,7 @@ const Navigation = () => {
             <a href="#">Истории</a>
             <NavLink to="/posts">Посты</NavLink>
             <NavLink to="/counter">Счётчик</NavLink>
-            <a href="#">Избранное</a>
+            <NavLink to="/gallery">Галерея</NavLink>
         </nav>
     );
 }
