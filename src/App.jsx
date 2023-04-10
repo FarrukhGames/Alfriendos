@@ -8,6 +8,7 @@ import Error from './components/Error';
 import FindFriends from './components/FindFriends';
 import Counter from './components/Counter';
 import Gallery from './components/Gallery';
+import FriendPage from './components/FriendPage';
 import {Route, Routes} from 'react-router-dom';
 
 const App = (props) => {
@@ -27,6 +28,7 @@ const App = (props) => {
           <Route path="/findFriends" element={<FindFriends/>}/>
           <Route path="/counter" element={<Counter/>}/>
           <Route path="/gallery" element={<Gallery/>}/>
+          <Route path="/:friendPage" element={<FriendPage/>}/>
           <Route path="/*" element={<Error/>}/>
         </Routes>
       </main>

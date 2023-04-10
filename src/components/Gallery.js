@@ -11,16 +11,16 @@ import Cossacks3 from "../images/cossacks3.jpg";
 const Gallery = (props) => {
     return (
         <div className="gallery">
-            <img class="aurora" src={Aurora}/>
-            <img class="pp" src={PoppyPlaytime}/>
-            <img class="bs" src={BrawlStars}/>
-            <img class="gta" src={GTA}/>
-            <img class="sonic" src={SonicEYX}/>
-            <img class="roblox" src={Roblox}/>
-            <img class="minecraft" src={Minecraft}/>
-            <img class="fnaf" src={Fnaf}/>
-            <img class="csgo" src={Csgo}/>
-            <img class="c3" src={Cossacks3}/>
+            <img className="aurora" src={Aurora}/>
+            <img className="pp" src={PoppyPlaytime}/>
+            <img className="bs" src={BrawlStars}/>
+            <img className="gta" src={GTA}/>
+            <img className="sonic" src={SonicEYX}/>
+            <img className="roblox" src={Roblox}/>
+            <img className="minecraft" src={Minecraft}/>
+            <img className="fnaf" src={Fnaf}/>
+            <img className="csgo" src={Csgo}/>
+            <img className="c3" src={Cossacks3}/>
         </div>
     );
 }
