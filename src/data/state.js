@@ -13,9 +13,9 @@ const store = {
                 {userName: "Elon Musk", text: "Я купил планету земля", img: image, id: 3, like: 0}
             ],
             friends: [
-                {userName: "Farrukh", img: farrukh, id: 1},
-                {userName: "Leo Messi", img: leomessi, id: 2},
-                {userName: "Elon Musk", img: elonmusk, id: 3}
+                {userName: "Farrukh", img: farrukh, id: 1, slug: "Farrukh", birthday: "21/06/2011", bio: "Блогер"},
+                {userName: "Messi", img: leomessi, id: 2, slug: "Messi", birthday: "24/06/1987", bio: "Футболист"},
+                {userName: "Musk", img: elonmusk, id: 3, slug: "Musk", birthday: "28/06/1971", bio: "Изобретатель"}
             ]
         },
         dialogesPage: {        
