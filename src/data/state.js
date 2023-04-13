@@ -2,6 +2,7 @@ import image from '../images/plage.jpg';
 import elonmusk from '../images/elonmusk.png';
 import farrukh from '../images/farrukh.png';
 import leomessi from '../images/leomessi.png';
+import profilimage from '../images/profilimage.png';
 import {renderTree} from '../index';
 
 const store = {
@@ -13,9 +14,10 @@ const store = {
                 {userName: "Elon Musk", text: "Я купил планету земля", img: image, id: 3, like: 0}
             ],
             friends: [
-                {userName: "Farrukh", img: farrukh, id: 1, slug: "Farrukh", birthday: "21/06/2011", bio: "Блогер"},
-                {userName: "Messi", img: leomessi, id: 2, slug: "Messi", birthday: "24/06/1987", bio: "Футболист"},
-                {userName: "Musk", img: elonmusk, id: 3, slug: "Musk", birthday: "28/06/1971", bio: "Изобретатель"}
+                {userName: "Farrukh", img: farrukh, id: 1, slug: "farrukh", birthday: "21/06/2011", bio: "Блогер"},
+                {userName: "Messi", img: leomessi, id: 2, slug: "messi", birthday: "24/06/1987", bio: "Футболист"},
+                {userName: "Elon Musk", img: elonmusk, id: 3, slug: "musk", birthday: "28/06/1971", bio: "Изобретатель"},
+                {userName: "User", img: profilimage, id: 4, slug: "user", birthday: "29/08/2006", bio: "Пользователь"}
             ]
         },
         dialogesPage: {        
@@ -30,51 +32,63 @@ const store = {
         return this._state;
     },
     dispatch(action) {
-        switch(action.type) {
-            case "DELETE_POST": 
-                this._state.profilePage.publications = this._state.profilePage.publications.filter((post) => {
-                    return post.id !== action.postId;
-                });
-                renderTree();   
-                break;
-            case "ADD_POST": 
-                const newPost = { 
-                    userName: action.userName,
-                    text: action.text,
-                    img: action.img,
-                    id: Math.random(),
-                    like: 0
-                }
-                this._state.profilePage.publications.unshift(newPost);
-                renderTree();
-                break;
-            case "ADD_MESSAGE": 
-                const newMessage = { 
-                    userName: action.userName,
-                    message: action.message,
-                    id: Math.random(),
-                }
-                this._state.dialogesPage.messages.push(newMessage);
-                renderTree();
-                break;
-            case "DELETE_MESSAGE": 
-                this._state.dialogesPage.messages = this._state.dialogesPage.messages.filter((report) => {
-                    return report.id !== action.messageId;
-                });
-                renderTree();
-                break;
-            case "ADD_LIKE": 
-                const post = this._state.profilePage.publications.find((element) => {
-                    return element.id === action.id;
-                });
-                post.like++;
-                renderTree();
-                break;
-            default: 
-                console.log("Что то не то :(");
-                break;
-        }
+        this._state.profilePage.publications = profileReducer(this._state.profilePage.publications, action);
+        this._state.dialogesPage.messages = dialogeReducer(this._state.dialogesPage.messages, action);
+        renderTree();
     }
+}
+
+const profileReducer = (state, action) => {
+    console.log(action)
+    switch(action.type) {
+        case "DELETE_POST": 
+            state = state.filter((post) => {
+                return post.id !== action.postId;
+            });  
+            break;
+        case "ADD_POST": 
+            const newPost = { 
+                userName: action.userName,
+                text: action.text,
+                img: action.img,
+                id: Math.random(),
+                like: 0
+            }
+            state.unshift(newPost);
+            break;
+        case "ADD_LIKE": 
+            const post = state.find((element) => {
+                return element.id === action.id;
+            });
+            post.like++;
+            break;
+        default: 
+            console.log("Что то не то :(");
+            break;
+    }
+    return state;
+}
+
+const dialogeReducer = (state, action) => {
+    switch(action.type) {
+        case "ADD_MESSAGE": 
+            const newMessage = { 
+                userName: action.userName,
+                message: action.message,
+                id: Math.random(),
+            }
+            state.push(newMessage);
+            break;
+        case "DELETE_MESSAGE": 
+            state = state.filter((report) => {
+                return report.id !== action.messageId;
+            });
+            break;
+        default: 
+            console.log("Что то не то :(");
+            break;
+    }
+    return state;
 }
 
 // AC это Action Creator

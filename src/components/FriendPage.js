@@ -1,10 +1,18 @@
 import {useParams} from 'react-router-dom';
 import store from '../data/state';
+let friend;
 const FriendPage = (props) => {
     let params = useParams();
-    let friend = store.getState().profilePage.friends.find((person) => {
-        return person.slug === params.friendPage;
-    });
+    console.log(params);
+    if (params.friendPage) {
+        friend = store.getState().profilePage.friends.find((person) => {
+            return person.slug === params.friendPage;
+        });
+    } else {
+        friend = store.getState().profilePage.friends.find((person) => {
+            return person.slug === "user";
+        });
+    }
     return (
         <div className="friend-page">
             <div className="profile-info">

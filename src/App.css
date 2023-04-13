@@ -147,6 +147,7 @@ img {
 .profile {
     margin-left: auto;
     margin-right: auto;
+    width: 700px;
 }
 
 .profile-info {
@@ -162,8 +163,10 @@ img {
 	grid-template-rows: 250px 250px;	
 }
 
-.friend-page .profile-info { 
-    margin: 0px 607px;
+
+
+.friend-page { 
+    margin: auto;
     margin-bottom: 0px;
 }
 

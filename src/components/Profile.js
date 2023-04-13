@@ -1,10 +1,10 @@
 import Posts from './Posts';
-import ProfileInfo from './ProfileInfo';
+import FriendPage from './FriendPage';
 import Friends from './Friends';
 const Profile = (props) => {
     return (
         <div className="profile">
-            <ProfileInfo/>
+            <FriendPage/>
             <Friends/>
             <Posts/>
         </div>
