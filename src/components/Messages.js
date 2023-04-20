@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import Message from './Message'; 
 import Peoples from './Peoples'; 
 import store from '../data/state';
-import {addMessageAC} from '../data/state';
+import {addMessageAC} from '../data/dialogeReducer';
 // import {addMessage} from '../data/state';
 const Messages = (props) => {
     const [name, setName] = useState("");

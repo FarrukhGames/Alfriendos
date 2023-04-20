@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
 import store from '../data/state';
-import {deleteMessageAC} from '../data/state';
+import {deleteMessageAC} from '../data/dialogeReducer';
 // import {deleteMessage} from '../data/state';
 
 const Message = (props) => {

@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import Publication from './Publication'; 
 import store from '../data/state';
-import {addPostAC} from '../data/state';
+import {addPostAC} from '../data/profileReducer';
 // import {addPost} from '../data/state';
 const Posts = () => {
     const [name, setName] = useState("");

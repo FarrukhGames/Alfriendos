@@ -1,8 +1,8 @@
 // import {useState} from 'react';
 import profilimage from '../images/profilimage.png';
 import store from '../data/state';
-import {deletePostAC} from '../data/state';
-import {addLikeAC} from '../data/state';
+import {deletePostAC} from '../data/profileReducer';
+import {addLikeAC} from '../data/profileReducer';
 // import {deletePost} from '../data/state';
 const Publication = (props) => {
     const removePost = () => {
