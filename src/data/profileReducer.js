@@ -1,7 +1,25 @@
+import image from '../images/plage.jpg';
+import elonmusk from '../images/elonmusk.png';
+import farrukh from '../images/farrukh.png';
+import leomessi from '../images/leomessi.png';
+import profilimage from '../images/profilimage.png';
 const ADD_POST = "ADD_POST";
 const DELETE_POST = "DELETE_POST";
 const ADD_LIKE = "ADD_LIKE";
-const profileReducer = (state, action) => {
+const initialState = {
+    publications: [
+        {userName: "Farrukh", text: "Пляж, это наше всё 😃", img: image, id: 1, like: 0},
+        {userName: "Leo Messi", text: "I WON THE WORLD CUP!!!" , img: image, id: 2, like: 0},
+        {userName: "Elon Musk", text: "Я купил планету земля", img: image, id: 3, like: 0}
+    ],
+    friends: [
+        {userName: "Farrukh", img: farrukh, id: 1, slug: "farrukh", birthday: "21/06/2011", bio: "Блогер"},
+        {userName: "Messi", img: leomessi, id: 2, slug: "messi", birthday: "24/06/1987", bio: "Футболист"},
+        {userName: "Elon Musk", img: elonmusk, id: 3, slug: "musk", birthday: "28/06/1971", bio: "Изобретатель"},
+        {userName: "User", img: profilimage, id: 4, slug: "user", birthday: "29/08/2006", bio: "Пользователь"}
+    ]
+}
+const profileReducer = (state = initialState, action) => {
     switch(action.type) {
         case DELETE_POST: 
             state = state.filter((post) => {

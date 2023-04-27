@@ -1,6 +1,13 @@
 const ADD_MESSAGE = "ADD_MESSAGE";
 const DELETE_MESSAGE = "DELETE_MESSAGE";
-const dialogeReducer = (state, action) => {
+const initialState = {      
+    messages: [
+        {userName: "Farrukh", message: ": Пляж, это наше всё 😃", id: 1},
+        {userName: "Mojang", message: ": Minecraft 1.20.0 скоро выйдет", id: 2},
+        {userName: "Roblox", message: ": Мы блокируем игру так как нас взломали :(", id: 3}
+    ]
+}
+const dialogeReducer = (state = initialState, action) => {
     switch(action.type) {
         case ADD_MESSAGE: 
             const newMessage = { 
