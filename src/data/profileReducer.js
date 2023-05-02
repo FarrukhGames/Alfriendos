@@ -19,12 +19,14 @@ const initialState = {
         {userName: "User", img: profilimage, id: 4, slug: "user", birthday: "29/08/2006", bio: "Пользователь"}
     ]
 }
-const profileReducer = (state = initialState, action) => {
+const profileReducer = (state = initialState, action) => { 
+// let publications = state.publications; 
     switch(action.type) {
-        case DELETE_POST: 
-            state = state.filter((post) => {
+        case DELETE_POST:
+            state.publications = state.publications.filter((post) => {
                 return post.id !== action.postId;
             });  
+            console.log(state.publications);
             break;
         case ADD_POST: 
             const newPost = { 
@@ -34,10 +36,10 @@ const profileReducer = (state = initialState, action) => {
                 id: Math.random(),
                 like: 0
             }
-            state.unshift(newPost);
+            state.publications.unshift(newPost);
             break;
         case ADD_LIKE: 
-            const post = state.find((element) => {
+            const post = state.publications.find((element) => {
                 return element.id === action.id;
             });
             post.like++;
@@ -46,6 +48,7 @@ const profileReducer = (state = initialState, action) => {
             console.log("Что то не то :(");
             break;
     }
+    console.log(state);
     return state;
 }
 

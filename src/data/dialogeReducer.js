@@ -15,10 +15,10 @@ const dialogeReducer = (state = initialState, action) => {
                 message: action.message,
                 id: Math.random(),
             }
-            state.push(newMessage);
+            state.messages.push(newMessage);
             break;
         case DELETE_MESSAGE: 
-            state = state.filter((report) => {
+            state.messages = state.messages.filter((report) => {
                 return report.id !== action.messageId;
             });
             break;

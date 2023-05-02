@@ -14,6 +14,7 @@ const Posts = () => {
         event.preventDefault();
         const dispatch = store.dispatch.bind(store);
         dispatch(addPostAC(name, text, img));
+        setText("")
     }
     const nameChangeHandler = (event) => {
         setName(event.target.value);
