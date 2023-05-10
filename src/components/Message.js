@@ -1,11 +1,12 @@
 import {Link} from "react-router-dom";
 import store from '../data/state';
 import {deleteMessageAC} from '../data/dialogeReducer';
+import {useDispatch} from 'react-redux';
 // import {deleteMessage} from '../data/state';
 
 const Message = (props) => {
+    let dispatch = useDispatch();
     const removeMessage = () => {
-        const dispatch = store.dispatch.bind(store);
         dispatch(deleteMessageAC(props.id));
     } 
     return (

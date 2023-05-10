@@ -1,9 +1,13 @@
 import React,{useState} from 'react';
 import Publication from './Publication'; 
-import store from '../data/state';
 import {addPostAC} from '../data/profileReducer';
+import {useDispatch, useSelector} from 'react-redux';
 // import {addPost} from '../data/state';
 const Posts = () => {
+    const publications = useSelector((state) => {
+        return state.publications
+    });
+    let dispatch = useDispatch();
     const [name, setName] = useState("");
     const [text, setText] = useState("");
     const [img, setImage] = useState(null);
@@ -12,7 +16,6 @@ const Posts = () => {
     // let textTextarea = React.createRef();
     const onSubmitHandler = (event) => {
         event.preventDefault();
-        const dispatch = store.dispatch.bind(store);
         dispatch(addPostAC(name, text, img));
         setText("")
     }
@@ -40,7 +43,7 @@ const Posts = () => {
                 </form>
                 <img src={img}/>
             </div>
-            {store.getState().profileReducer.publications.map((element) => {
+            {publications.map((element) => {
                 return <Publication userName={element.userName} text={element.text} img={element.img} key={element.id} id={element.id} like={element.like}/>  
             })}
         </section>

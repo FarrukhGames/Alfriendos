@@ -1,15 +1,19 @@
 import React,{useState} from 'react';
 import Message from './Message'; 
 import Peoples from './Peoples'; 
-import store from '../data/state';
 import {addMessageAC} from '../data/dialogeReducer';
+import {useDispatch, useSelector} from 'react-redux';
+
 // import {addMessage} from '../data/state';
 const Messages = (props) => {
+    const messages = useSelector((state) => {
+        return state.messages
+    });
+    let dispatch = useDispatch();
     const [name, setName] = useState("");
     let messageTextarea = React.createRef();
     const onSubmitHandler = (event) => {
         event.preventDefault();
-        const dispatch = store.dispatch.bind(store);
         dispatch(addMessageAC(name, ": " + messageTextarea.current.value));
     }
     const nameChangeHandler = (event) => {
@@ -23,7 +27,7 @@ const Messages = (props) => {
                 <button><Peoples/></button>
             </div>
             <div className="messages">
-                {store.getState().dialogeReducer.messages.map((element) => {
+                {messages.map((element) => {
                     return <Message userName={element.userName} message={element.message} key={element.id} id={element.id}/>
                 })}
                 <form className="send" onSubmit={onSubmitHandler}>

@@ -1,16 +1,19 @@
 import {useParams} from 'react-router-dom';
-import store from '../data/state';
+import {useSelector} from 'react-redux';
+
 let friend;
 const FriendPage = (props) => {
+    const friends = useSelector((state) => {
+        return state.friends
+    });
     let params = useParams();
-    console.log(store.getState());
     console.log(params);
     if (params.friendPage) {
-        friend = store.getState().profileReducer.friends.find((person) => {
+        friend = friends.find((person) => {
             return person.slug === params.friendPage;
         });
     } else {
-        friend = store.getState().profileReducer.friends.find((person) => {
+        friend = friends.find((person) => {
             return person.slug === "user";
         });
     }

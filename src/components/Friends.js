@@ -1,11 +1,14 @@
 import Friend from './Friend'; 
-import store from '../data/state';
+import {useSelector} from 'react-redux';
 const Friends = (props) => {
+    const friends = useSelector((state) => {
+        return state.friends
+    });
     return (
         <div className="friends">
             <h1>Friends</h1>
             <div className="friends-div">
-                {store.getState().profileReducer.friends.map((element) => {
+                {friends.map((element) => {
                     return <Friend friend={element} userName={element.userName} img={element.img} key={element.id} id={element.id} slug={element.slug}/>  
                 })}
             </div>

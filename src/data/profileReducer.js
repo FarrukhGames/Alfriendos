@@ -21,11 +21,13 @@ const initialState = {
 }
 const profileReducer = (state = initialState, action) => { 
 // let publications = state.publications; 
+    const newState = {...state};
     switch(action.type) {
         case DELETE_POST:
-            state.publications = state.publications.filter((post) => {
+            newState.publications = newState.publications.filter((post) => {
                 return post.id !== action.postId;
             });  
+            newState.publications = [...newState.publications];
             console.log(state.publications);
             break;
         case ADD_POST: 
@@ -36,20 +38,21 @@ const profileReducer = (state = initialState, action) => {
                 id: Math.random(),
                 like: 0
             }
-            state.publications.unshift(newPost);
+            newState.publications = [...newState.publications, newPost];
             break;
         case ADD_LIKE: 
             const post = state.publications.find((element) => {
                 return element.id === action.id;
             });
             post.like++;
+            newState.cart = [...newState.cart];
             break;
         default: 
             console.log("Что то не то :(");
             break;
     }
-    console.log(state);
-    return state;
+    console.log(newState);
+    return newState;
 }
 
 export const deletePostAC = (id) => {
