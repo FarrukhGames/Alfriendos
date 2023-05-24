@@ -4,7 +4,7 @@ import {useSelector} from 'react-redux';
 let friend;
 const FriendPage = (props) => {
     const friends = useSelector((state) => {
-        return state.friends
+        return state.profileReducer.friends
     });
     let params = useParams();
     console.log(params);

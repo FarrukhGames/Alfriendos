@@ -7,7 +7,7 @@ import {useDispatch, useSelector} from 'react-redux';
 // import {addMessage} from '../data/state';
 const Messages = (props) => {
     const messages = useSelector((state) => {
-        return state.messages
+        return state.dialogeReducer.messages
     });
     let dispatch = useDispatch();
     const [name, setName] = useState("");

@@ -10,12 +10,20 @@ import Counter from './components/Counter';
 import Gallery from './components/Gallery';
 import FriendPage from './components/FriendPage';
 import {Route, Routes} from 'react-router-dom';
+// import {useSelector} from 'react-redux';
+import Auth from './components/Auth';
+import {useState} from "react";
 
 const App = (props) => {
   // const numbers = [13, 14, 15, 16, 17];
   // const numbers2 = numbers.map((number) => {
   //   return number * 10;
   // });
+  // const state = useSelector((state) => {
+  //   return state
+  // }); 
+  // console.log(state);
+  const [isLogged, setIsLogged] = useState(false);
   return (
     <>
       <Header/>
@@ -31,6 +39,7 @@ const App = (props) => {
           <Route path="/:friendPage" element={<FriendPage/>}/>
           <Route path="/*" element={<Error/>}/>
         </Routes>
+        {!isLogged && <Auth/>}
       </main>
     </>
   );

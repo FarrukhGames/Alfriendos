@@ -5,7 +5,7 @@ import {useDispatch, useSelector} from 'react-redux';
 // import {addPost} from '../data/state';
 const Posts = () => {
     const publications = useSelector((state) => {
-        return state.publications
+        return state.profileReducer.publications
     });
     let dispatch = useDispatch();
     const [name, setName] = useState("");
@@ -14,6 +14,8 @@ const Posts = () => {
     const [fileName, setFileName] = useState("")
     // let nameInput = React.createRef();
     // let textTextarea = React.createRef();
+    // let h1 = React.createRef();
+    // console.log(h1.current.innerHTML);
     const onSubmitHandler = (event) => {
         event.preventDefault();
         dispatch(addPostAC(name, text, img));
@@ -33,7 +35,7 @@ const Posts = () => {
     return (
         <section className="posts">
             <div className="new-post">
-                <h1>Новый Пост</h1>
+                <h1 style={{color: "green"}}>Новый Пост</h1>
                 <form className="new-post-form" onSubmit={onSubmitHandler}>
                     <input type="text" placeholder="Имя" value={name} onChange={nameChangeHandler}/>
                     <textarea className="new-post-textarea" placeholder="Напишите Текст..." value={text} onChange={textChangeHandler}></textarea>

@@ -2,7 +2,7 @@ import Friend from './Friend';
 import {useSelector} from 'react-redux';
 const Friends = (props) => {
     const friends = useSelector((state) => {
-        return state.friends
+        return state.profileReducer.friends
     });
     return (
         <div className="friends">

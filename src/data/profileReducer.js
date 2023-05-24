@@ -38,14 +38,14 @@ const profileReducer = (state = initialState, action) => {
                 id: Math.random(),
                 like: 0
             }
-            newState.publications = [...newState.publications, newPost];
+            newState.publications = [newPost, ...newState.publications];
             break;
         case ADD_LIKE: 
             const post = state.publications.find((element) => {
                 return element.id === action.id;
             });
             post.like++;
-            newState.cart = [...newState.cart];
+            newState.publications = [...newState.publications];
             break;
         default: 
             console.log("Что то не то :(");
