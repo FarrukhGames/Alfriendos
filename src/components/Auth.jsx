@@ -1,6 +1,6 @@
-const Auth = () => {
+const Auth = (props) => {
     return (
-        <form className="form__log-in">
+        <form className="form__log-in"  onSubmit={props.loginFunction}>
             <h2>Log In</h2>
             <input placeholder="E-Mail" type="email"/>
             <input placeholder="Password" type="password"/>

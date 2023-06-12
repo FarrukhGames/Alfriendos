@@ -1,16 +1,18 @@
 import {NavLink} from 'react-router-dom';
-const Navigation = () => {
+const Navigation = (props) => {
     return (
         <nav className="navigation">
-            <NavLink to="/">Профиль</NavLink>
-            <NavLink to="/messages">Сообщения</NavLink>
-            <a href="#">Друзья</a>
-            <NavLink to="/findFriends">Поиск друзей</NavLink>
-            <a href="#">Allfriendos Clips</a>
-            <a href="#">Истории</a>
-            <NavLink to="/posts">Посты</NavLink>
-            <NavLink to="/counter">Счётчик</NavLink>
-            <NavLink to="/gallery">Галерея</NavLink>
+            <NavLink className="navigation__link" to="/">Профиль</NavLink>
+            <NavLink className="navigation__link" to="/messages">Сообщения</NavLink>
+            <a className="navigation__link" href="#">Друзья</a>
+            <NavLink className="navigation__link" to="/findFriends">Поиск друзей</NavLink>
+            <a className="navigation__link" href="#">Allfriendos Clips</a>
+            <a className="navigation__link" href="#">Истории</a>
+            <NavLink className="navigation__link" to="/posts">Посты</NavLink>
+            <NavLink className="navigation__link" to="/counter">Счётчик</NavLink>
+            <NavLink className="navigation__link" to="/gallery">Галерея</NavLink>
+            {props.isAuthenticated && <NavLink className="navigation__link" to="/profile ">Профиль</NavLink>}
+            {props.isAuthenticated && <button className="navigation__link" onClick={props.logoutFunction}>Выйти из аккаунта</button>}
         </nav>
     );
 }

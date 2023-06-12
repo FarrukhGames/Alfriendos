@@ -12,6 +12,7 @@ import FriendPage from './components/FriendPage';
 import {Route, Routes} from 'react-router-dom';
 // import {useSelector} from 'react-redux';
 import Auth from './components/Auth';
+import ProfileInfo from "./components/ProfileInfo";
 import {useState} from "react";
 
 const App = (props) => {
@@ -24,11 +25,18 @@ const App = (props) => {
   // }); 
   // console.log(state);
   const [isLogged, setIsLogged] = useState(false);
+  const loginHandler = (event) => {
+    event.preventDefault();
+    setIsLogged(true);
+  }
+  const logoutHandler = () => {
+    setIsLogged(false)
+  }
   return (
     <>
       <Header/>
       <main className="main">
-        <Navigation/>      
+        <Navigation isAuthenticated={isLogged} logoutFunction={logoutHandler}/>      
         <Routes>
           <Route path="/messages" element={<Messages messages={props.messages}/>}/>
           <Route path="/posts" element={<Posts/>}/>
@@ -37,9 +45,10 @@ const App = (props) => {
           <Route path="/counter" element={<Counter/>}/>
           <Route path="/gallery" element={<Gallery/>}/>
           <Route path="/:friendPage" element={<FriendPage/>}/>
+          <Route path="/profile" element={<ProfileInfo/>}/>
           <Route path="/*" element={<Error/>}/>
         </Routes>
-        {!isLogged && <Auth/>}
+        {!isLogged && <Auth loginFunction={loginHandler}/>}
       </main>
     </>
   );

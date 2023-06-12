@@ -23,7 +23,7 @@ img {
 
 .navigation {
     width: var(--navigation-width);
-    height: 100%;
+    height: 90%;
     box-shadow: 0px 3px 5px black;
     display: flex;
     flex-direction: column;
@@ -225,7 +225,7 @@ img {
     margin-left: 240px;
 }
 
-a {
+a, .navigation__link {
     text-align: center;
     padding-top: 30px;
     padding-bottom: 30px;
@@ -235,11 +235,17 @@ a {
     transition: 0.3s;
     width: 300px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
-a:hover {
+a:hover, .navigation__link:hover {
     box-shadow: 0px 3px 10px black;
     background-color: #F1F1F1;
+}
+
+.navigation button {
+    background-color: transparent;
+    border: none;
 }
 
 .center {
@@ -439,6 +445,12 @@ a:hover {
   height: 40px;
   font-size: 17px;
   border-radius: 5px;
+  padding: 5px;
+  outline: none;
+}
+
+.form__log-in input:focus {
+    border: 1px solid #4ac1a3;
 }
 
 .Log-in {
@@ -447,6 +459,13 @@ a:hover {
   border-radius: 5px;
   border: none;
   background-color: #4ac1a3;
+  cursor: pointer;
   font-size: 20px;
   color: white; 
+  border: none;
+  outline: none;
+}
+
+.Log-in:focus {
+  box-shadow: 0px 0px 0px 3px #214f43;
 }
