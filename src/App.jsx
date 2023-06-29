@@ -13,30 +13,48 @@ import {Route, Routes} from 'react-router-dom';
 // import {useSelector} from 'react-redux';
 import Auth from './components/Auth';
 import ProfileInfo from "./components/ProfileInfo";
-import {useState} from "react";
+import {useState, useEffect} from "react";
+import Modal from "./components/Modal";
 
 const App = (props) => {
   // const numbers = [13, 14, 15, 16, 17];
   // const numbers2 = numbers.map((number) => {
-  //   return number * 10;
-  // });
-  // const state = useSelector((state) => {
-  //   return state
-  // }); 
-  // console.log(state);
+    //   return number * 10;
+    // });
+    // const state = useSelector((state) => {
+      //   return state
+      // }); 
+      // console.log(state);
   const [isLogged, setIsLogged] = useState(false);
+  const [isModalShown, setIsModalShown] = useState(false);
+  const isLoggedInfo = localStorage.getItem("logged");
+  useEffect(() => {
+    console.log("effect");
+    if (isLoggedInfo === "1") {
+      setIsLogged(true);
+    }
+  }, []);
+  console.log(isLoggedInfo);
   const loginHandler = (event) => {
     event.preventDefault();
     setIsLogged(true);
+    localStorage.setItem("logged", "1");
   }
   const logoutHandler = () => {
-    setIsLogged(false)
+    setIsLogged(false);
+    localStorage.removeItem("logged");
+  }
+  const showModal = () => {
+    setIsModalShown(true);
+  }
+  const hideModal = () => {
+    setIsModalShown(false);
   }
   return (
     <>
       <Header/>
       <main className="main">
-        <Navigation isAuthenticated={isLogged} logoutFunction={logoutHandler}/>      
+        <Navigation isAuthenticated={isLogged} logoutFunction={logoutHandler} showModalFunction={showModal}/>      
         <Routes>
           <Route path="/messages" element={<Messages messages={props.messages}/>}/>
           <Route path="/posts" element={<Posts/>}/>
@@ -49,6 +67,7 @@ const App = (props) => {
           <Route path="/*" element={<Error/>}/>
         </Routes>
         {!isLogged && <Auth loginFunction={loginHandler}/>}
+        {isModalShown && <Modal hideModalFunction={hideModal}/>}
       </main>
     </>
   );

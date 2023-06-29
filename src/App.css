@@ -23,7 +23,7 @@ img {
 
 .navigation {
     width: var(--navigation-width);
-    height: 90%;
+    height: calc(100% - var(--header-height));
     box-shadow: 0px 3px 5px black;
     display: flex;
     flex-direction: column;
@@ -33,6 +33,7 @@ img {
     left: 0;
     top: var(--header-height);
     background-color: white;
+    overflow: auto;
 } 
 
 .posts {
@@ -451,6 +452,7 @@ a:hover, .navigation__link:hover {
 
 .form__log-in input:focus {
     border: 1px solid #4ac1a3;
+    box-shadow: 0px 0px 5px 4px #2d8f75;
 }
 
 .Log-in {
@@ -467,5 +469,14 @@ a:hover, .navigation__link:hover {
 }
 
 .Log-in:focus {
-  box-shadow: 0px 0px 0px 3px #214f43;
+  box-shadow: 0px 0px 5px 4px #2d8f75;
+}
+
+input.invalid {
+  border-color: rgb(251, 50, 50);
+}
+
+.form-is-invalid button {
+    cursor: not-allowed;
+    filter: grayscale(1);
 }
