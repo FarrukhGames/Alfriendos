@@ -13,7 +13,7 @@ const Navigation = (props) => {
             <NavLink className="navigation__link" to="/gallery">Галерея</NavLink>
             {props.isAuthenticated && <NavLink className="navigation__link" to="/profile ">Профиль</NavLink>}
             {props.isAuthenticated && <button className="navigation__link" onClick={props.logoutFunction}>Выйти из аккаунта</button>}
-            <button className="navigation__link navigation__show-modal" onClick={props.showModalFunction}>Показать Modal</button>
+            {!props.isAuthenticated && <button className="navigation__link navigation__show-modal" onClick={props.showModalFunction}>Log In</button>}
         </nav>
     );
 }

@@ -1,0 +1,44 @@
+.modal {
+    width: 500px;
+    height: 500px;
+    border: 2px solid black;
+    border-radius: 20px;
+    z-index: 1000;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    background-color: rgba(161, 161, 161, 0.7);
+    backdrop-filter: blur(7px);
+}
+
+.modal__button {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.5s;
+    padding: 3px;
+}
+
+.modal__button:hover {
+    background-color: rgb(215, 213, 213);
+    transform: scale(1.2);
+}

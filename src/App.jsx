@@ -1,4 +1,6 @@
-import './App.css';
+import {useState, useEffect} from "react";
+import {createPortal} from "react-dom";
+import {Route, Routes} from 'react-router-dom';
 import Header from './components/Header';
 import Navigation from './components/Navigation';
 import Posts from './components/Posts';
@@ -9,12 +11,11 @@ import FindFriends from './components/FindFriends';
 import Counter from './components/Counter';
 import Gallery from './components/Gallery';
 import FriendPage from './components/FriendPage';
-import {Route, Routes} from 'react-router-dom';
 // import {useSelector} from 'react-redux';
 import Auth from './components/Auth';
 import ProfileInfo from "./components/ProfileInfo";
-import {useState, useEffect} from "react";
-import Modal from "./components/Modal";
+import Modal from "./components/Modal/Modal";
+import './App.css';
 
 const App = (props) => {
   // const numbers = [13, 14, 15, 16, 17];
@@ -66,8 +67,8 @@ const App = (props) => {
           <Route path="/profile" element={<ProfileInfo/>}/>
           <Route path="/*" element={<Error/>}/>
         </Routes>
-        {!isLogged && <Auth loginFunction={loginHandler}/>}
-        {isModalShown && <Modal hideModalFunction={hideModal}/>}
+        {/* {!isLogged && <Auth loginFunction={loginHandler}/>} */}
+        {isModalShown && <Modal hideModalFunction={hideModal}><Auth loginFunction={loginHandler}/></Modal>}
       </main>
     </>
   );
